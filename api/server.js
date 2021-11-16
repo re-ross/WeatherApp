@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const axios = require("axios");
@@ -22,9 +23,9 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-
+const api_key = process.env.REACT_APP_WEATHER_KEY
 const openWeatherMapURL = (city) =>
-  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b7f617ced39b2c42b14a06c74e889414`;
+  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
 
 app.get("/city-weather/:city", (req, res) => {
   const city = req.query.city;
