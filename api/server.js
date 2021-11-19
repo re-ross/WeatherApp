@@ -23,7 +23,7 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-const API_KEY = process.env.REACT_APP_WEATHER_KEY
+const api_key = process.env.REACT_APP_WEATHER_KEY
 const openWeatherMapURL = (city) =>
   `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
 
